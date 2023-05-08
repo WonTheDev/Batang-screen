@@ -1,0 +1,131 @@
+:root {
+  --main-color: ;
+  --secondary-color: ;
+  --font-sm: 12px;
+  --font-md: 16px;
+  --font-lg: 20px;
+  --border-radius: 10px;
+  --font-weight-bold: bold;
+}
+
+/* Common tag ------------------------------------------------------- */
+li {
+  display: inline-block;
+}
+
+.HIDDEN {
+  visibility: hidden;
+}
+
+body {
+  font-family: "Noto Sans KR", "Apple SD Gothic", "맑은고딕", sans-serif;
+}
+
+/* background ------------------------------------------------------- */
+.background {
+  background-image: url(../img/luca-micheli-ruWkmt3nU58-unsplash.jpg);
+  background-repeat: no-repeat;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+}
+
+/* lockscreen ------------------------------------------------------- */
+.lockscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lockscreen_login {
+  width: 20%;
+  height: 50%;
+  position: absolute;
+  top: 40vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_button_box {
+  height: 1vh;
+}
+
+.login_button {
+  margin-top: 1vh;
+  padding: 1vh;
+  position: relative;
+  height: 5vh;
+  background-color: rgba(235, 235, 235, 0.627);
+  border-radius: var(--border-radius);
+  border: none;
+  font-weight: var(--font-weight-bold);
+}
+
+.login_button:hover {
+  cursor: pointer;
+  background-color: rgb(167, 162, 162);
+}
+
+.login_form {
+  display: none;
+  flex-direction: column;
+}
+
+.login_input {
+  margin: 0.3vh;
+  border-radius: var(--border-radius);
+  border: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.5);
+  height: 2vh;
+  width: 90%;
+  padding: 1vh;
+  font-size: var(--font-sm);
+}
+
+.lock_text {
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-bold);
+  margin-top: 1vh;
+  -webkit-text-stroke: 0.4px black;
+  color: white;
+}
+
+/* Header ------------------------------------------------------------------*/
+
+/* body_Header */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3vh;
+  color: white;
+  font-size: var(--font-sm);
+}
+
+/* Header_inner*/
+.navbar_menus {
+  margin: 10px;
+  font-size: var(--font-sm);
+}
+.menus_logo {
+  margin-left: 6px;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-md);
+}
+
+.menus_icons {
+  font-size: var(--font-sm);
+  margin-right: 10px;
+}
+
+/* main_content -------------------------------------------- */
+.main_content {
+  display: none;
+}
