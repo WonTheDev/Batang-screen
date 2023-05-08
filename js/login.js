@@ -1,45 +1,35 @@
-// 민지님 시작
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const loginUsername = document.querySelector("#login-username");
+const navbars = document.querySelector("#navbar");
+const loginBox = document.querySelector("#login-box");
 
-// //로그인 바탕화면으로 쓸 이미지. (랜덤하게 출력)
-// const randHoldImg = [
-//   "holdScreen1.jpg",
-//   "holdScreen2.jpg",
-//   "holdScreen3.jpg",
-//   "holdScreen4.jpg",
-//   "holdScreen5.jpg",
-//   "holdScreen6.jpg",
-// ];
+const HIDDEN_DISPLAY = "HIDDEN_D";
+const HIDDEN_VISIBILITY = "HIDDEN_V";
+const USERNAME_KEY = "username";
 
-function loginClick() {
-  //logIn버튼 클릭시 버튼 없어지고 로그인 창 나타나게 함   (로그인 박스 나타나게 하는 버튼 )
-  document.querySelector(".login_button").style.visibility = "hidden";
-  document.querySelector(".login_form").style.display = "flex";
+function paintLoginUsername(username) {
+  loginUsername.innerText = username;
 }
 
-// 승빈님 시작 //
-/* onclick value reset */
-resetIdValue = () => {
-  document.getElementById("login_input_id").value = null;
-};
-resetPwValue = () => {
-  document.getElementById("login_input_pw").value = null;
-};
+function onLoginSubmit(event) {
+  event.preventDefault();
+  loginForm.classList.add(HIDDEN_VISIBILITY);
+  navbars.classList.remove(HIDDEN_VISIBILITY);
+  const username = loginInput.value;
+  localStorage.setItem(USERNAME_KEY, username);
+  paintLoginUsername(username);
+}
 
-/* if id or pw input value = null */
-document.addEventListener("keyup", (keyPress) => {
-  if (keyPress.key === "Enter") {
-    let idValue = document.getElementById("login_input_id");
-    let pwValue = document.getElementById("login_input_pw");
-    if (!idValue.value || !pwValue.value) {
-      alert("아이디 혹은 비밀번호를 입력하여 주세요");
-    }
-    /* id or pw input value = not null */
-    if (idValue.value && pwValue.value) {
-      document.querySelector(".navbar").style.visibility = "inherit";
-      document.querySelector(".navbar").style.backgroundColor =
-        "rgba(0, 0, 0, 0.3)";
-      document.querySelector(".navbar").style.backdropFilter = "blur(8px)";
-      document.querySelector(".lockscreen").style.visibility = "hidden";
-    }
-  }
-});
+loginForm.addEventListener("submit", onLoginSubmit);
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if (savedUsername === null) {
+  loginForm.classList.remove(HIDDEN_VISIBILITY);
+  navbars.classList.add(HIDDEN_VISIBILITY);
+  loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+  paintLoginUsername(savedUsername);
+  navbars.classList.remove(HIDDEN_VISIBILITY);
+}

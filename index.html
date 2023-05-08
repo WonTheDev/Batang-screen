@@ -14,10 +14,6 @@
     <!-- Main_css -->
 
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/all.min.css"
-    />
 
     <!-- font awesome -->
     <script
@@ -28,71 +24,51 @@
   <body>
     <div class="background">
       <!-- bars -->
-      <header id="navbar" class="navbar HIDDEN">
-        <div class="navbar_menus">
-          <li class="menus_logo">
-            <i class="fa-brands fa-apple"></i>
-          </li>
-          <li>Finder</li>
-          <li>파일</li>
-          <li>보기</li>
-          <li>수정</li>
-          <li>방문기록</li>
-          <li>북마크</li>
-          <li>프로필</li>
-          <li>탭</li>
-          <li>창</li>
-          <li>도움말</li>
-        </div>
-        <div class="menus_icons">
-          <li class="fa-solid fa-keyboard"></li>
-          <li class="fa-solid fa-wifi"></li>
-          <li class="fa-solid fa-magnifying-glass"></li>
-          <li class="fa-solid fa-battery-three-quarters"></li>
-          <li class="fa-solid fa-bars-progress"></li>
-          <li id="clock"></li>
+      <header>
+        <div id="navbar" class="navbar HIDDEN_V">
+          <div class="navbar_menus">
+            <li class="menus_logo">
+              <i class="fa-brands fa-apple"></i>
+            </li>
+            <li id="login-username"></li>
+            <li>파일</li>
+            <li>보기</li>
+            <li>수정</li>
+            <li>방문기록</li>
+            <li>북마크</li>
+            <li>프로필</li>
+            <li>탭</li>
+            <li>창</li>
+            <li>도움말</li>
+          </div>
+          <div class="menus_icons">
+            <li class="fa-solid fa-keyboard"></li>
+            <li class="fa-solid fa-wifi"></li>
+            <li class="fa-solid fa-magnifying-glass"></li>
+            <li class="fa-solid fa-battery-three-quarters"></li>
+            <li class="fa-solid fa-bars-progress"></li>
+            <li id="clock"></li>
+          </div>
         </div>
       </header>
-      <div class="lockscreen">
-        <div id="lockscreen_login" class="lockscreen_login">
-          <p class="fa-stack fa-4x">
+      <div id="login-box" class="login_box">
+        <form id="login-form" class="login_form HIDDEN_V">
+          <p id="login-img" class="fa-stack fa-4x">
             <i
               class="fa-solid fa-circle fa-stack-2x"
               style="color: rgba(0, 0, 0, 0.3)"
             ></i>
             <i class="fa-solid fa-user fa-stack-1x" style="color: white"></i>
           </p>
-          <div class="login_button_box">
-            <button class="login_button" onclick="loginClick()">로그인</button>
-          </div>
-          <div class="login_form">
-            <p>
-              <input
-                type="text"
-                class="login_input"
-                id="login_input_id"
-                value="아이디 입력"
-                onfocus="resetIdValue()"
-              />
-            </p>
-            <p>
-              <input
-                type="text"
-                class="login_input"
-                id="login_input_pw"
-                value="암호 입력"
-                onfocus="resetPwValue()"
-              />
-            </p>
-            <p class="lock_text">아이디와 암호를 입력해주세요.</p>
-          </div>
-        </div>
+          <input required type="text" placeholder="아이디 입력" />
+          <input type="submit" value="로그인" />
+        </form>
       </div>
       <div class="main_content"></div>
     </div>
     <!-- JavaScript -->
-    <script src="js/clock.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/clock.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
