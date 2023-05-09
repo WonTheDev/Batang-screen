@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,54 +21,172 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <div class="background">
-      <!-- bars -->
-      <header>
-        <div id="navbar" class="navbar HIDDEN_V">
-          <div class="navbar_menus">
-            <li class="menus_logo">
-              <i class="fa-brands fa-apple"></i>
-            </li>
-            <li id="login-username"></li>
-            <li>파일</li>
-            <li>보기</li>
-            <li>수정</li>
-            <li>방문기록</li>
-            <li>북마크</li>
-            <li>프로필</li>
-            <li>탭</li>
-            <li>창</li>
-            <li>도움말</li>
-          </div>
-          <div class="menus_icons">
-            <li class="fa-solid fa-keyboard"></li>
+  <body class="DARK_MODE">
+    <!-- bars -->
+    <header>
+      <div id="navbar" class="navbar HIDDEN_V">
+        <ol class="navbar_menus">
+          <button type="button" class="menus_logo" id="switchButton">
+            <i class="fa-brands fa-apple"></i>
+          </button>
+          <button id="dropdown-button" class="menus_menu">
+            <span id="login-username" class="menus_menu"></span>
+          </button>
+          <button class="menus_menu" id="todo-button">투두리스트</button>
+          <button class="menus_menu">음악</button>
+          <button class="menus_menu">지도</button>
+        </ol>
+        <div class="menus_icons">
+          <!-- <li class="fa-solid fa-keyboard"></li>
             <li class="fa-solid fa-wifi"></li>
             <li class="fa-solid fa-magnifying-glass"></li>
             <li class="fa-solid fa-battery-three-quarters"></li>
-            <li class="fa-solid fa-bars-progress"></li>
-            <li id="clock"></li>
+            <li class="fa-solid fa-bars-progress"></li> -->
+          <li id="clock"></li>
+        </div>
+      </div>
+      <button id="logout-button" class="logout_button HIDDEN_D">
+        로그아웃
+      </button>
+    </header>
+    <div id="login-box" class="login_box">
+      <form id="login-form" class="login_form HIDDEN_V">
+        <p id="login-img" class="fa-stack fa-4x">
+          <i
+            class="fa-solid fa-circle fa-stack-2x"
+            style="color: rgba(0, 0, 0, 0.3)"
+          ></i>
+          <i class="fa-solid fa-user fa-stack-1x" style="color: white"></i>
+        </p>
+        <input
+          class="input_name"
+          required
+          type="text"
+          placeholder="이름을 입력하세요"
+        />
+        <input class="login_button" type="submit" value="로그인" />
+      </form>
+    </div>
+    <div class="main_content">
+      <!-- 투두리스트 시작 -->
+      <div class="todo_container HIDDEN_V" id="todo-container">
+        <div class="vline"></div>
+
+        <div class="topbar">
+          <button class="circle1" id="close-button"></button>
+          <div class="circle2"></div>
+          <div class="circle3"></div>
+        </div>
+
+        <div class="todo_main">
+          <div class="worklist">
+            <div class="worklist_middlebar">
+              <div class="todo_title">Projects</div>
+              <i class="fa-solid fa-user" class="person_icon"> </i>
+            </div>
+            <hr />
+
+            <div class="categorys">
+              <div class="category2">
+                <div class="visible2" id="visible2">▼</div>
+                <div>&nbsp; &nbsp;할 일</div>
+              </div>
+
+              <div class="todolist" id="todolist">
+                <!-- 할일 리스트 -->
+              </div>
+
+              <div class="category1">
+                <div class="visible1" id="visible1">▼</div>
+                <div>&nbsp; &nbsp;작업 완료</div>
+              </div>
+
+              <div class="end_worklist" id="end-worklist">
+                <!-- 작업완료 리스트 -->
+              </div>
+            </div>
+          </div>
+
+          <div class="addworkbox">
+            <div class="addwork_middlebar">
+              <div style="font-weight: bold">ToDo List</div>
+            </div>
+            <br />
+            <br />
+
+            <label class="addwork">
+              <input
+                type="text"
+                class="addwork_input"
+                id="addwork-input"
+                placeholder="할 일"
+                onfocus="this.placeholder=''"
+                onblur="this.placeholder='할 일'"
+                autocomplete="off"
+              />
+            </label>
+            <br />
+            <br />
+
+            <label class="addmemo">
+              <textarea
+                class="memo_input"
+                id="memo-input"
+                placeholder="내용"
+                onfocus="this.placeholder=''"
+                onblur="this.placeholder='내용'"
+                autocomplete="off"
+              ></textarea>
+            </label>
+            <br />
+            <br />
+            <div class="checkboxes">
+              <div>Projects | &nbsp;&nbsp;&nbsp;</div>
+              <label>
+                <input type="checkbox" class="checkbox1" id="checkbox1" />작업
+                완료</label
+              >
+
+              &nbsp;&nbsp;&nbsp;
+              <label>
+                <input type="checkbox" class="checkbox2" id="checkbox2" />할
+                일</label
+              >
+            </div>
+            <br />
+            <br />
+
+            <div class="errors" id="errors">
+              <div class="error1" id="error1">
+                할일 <i class="fa-regular fa-square"></i>
+              </div>
+              <div class="error2" id="error2">
+                내용 <i class="fa-regular fa-square"></i>
+              </div>
+              <div class="error3" id="error3">
+                Projects <i class="fa-regular fa-square"></i>
+              </div>
+            </div>
+            <br />
+
+            <br />
+            <div class="error_msg" id="error-msg">
+              <div>Project를 하나만 선택해주세요</div>
+            </div>
+            <br />
+
+            <div class="addbuttonbox">
+              <button class="addbutton" id="addbutton">ADD</button>
+            </div>
           </div>
         </div>
-      </header>
-      <div id="login-box" class="login_box">
-        <form id="login-form" class="login_form HIDDEN_V">
-          <p id="login-img" class="fa-stack fa-4x">
-            <i
-              class="fa-solid fa-circle fa-stack-2x"
-              style="color: rgba(0, 0, 0, 0.3)"
-            ></i>
-            <i class="fa-solid fa-user fa-stack-1x" style="color: white"></i>
-          </p>
-          <input required type="text" placeholder="아이디 입력" />
-          <input type="submit" value="로그인" />
-        </form>
       </div>
-      <div class="main_content"></div>
+      <!-- 투두리스트 끝 -->
     </div>
     <!-- JavaScript -->
     <script src="js/login.js"></script>
     <script src="js/clock.js"></script>
+    <script src="js/todo.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,11 +1,35 @@
+@font-face {
+  font-family: "SUITE-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SUITE-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DOSPilgiMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSPilgiMedium.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
-  --main-color: ;
-  --secondary-color: ;
   --font-sm: 12px;
   --font-md: 16px;
   --font-lg: 20px;
   --border-radius: 10px;
-  --font-weight-bold: bold;
+  --font-weight-bold: 800;
+  --bar-color: rgba(255, 255, 255, 0.1);
+  --window-color: rgba(255, 255, 255, 0.8);
+  --main-color: white;
+  --secondary-color: black;
 }
 
 /* Common tag ------------------------------------------------------- */
@@ -22,20 +46,27 @@ li {
 }
 
 body {
-  font-family: "Noto Sans KR", "Apple SD Gothic", "맑은고딕", sans-serif;
-}
-
-/* background ------------------------------------------------------- */
-.background {
+  font-family: "SUITE-Regular";
+  transform: rotate(0.04deg);
   background-image: url(../img/luca-micheli-ruWkmt3nU58-unsplash.jpg);
   background-repeat: no-repeat;
-  position: fixed;
+  background-position: center;
   height: 100vh;
-  width: 100%;
   background-size: cover;
+  overflow: hidden;
 }
 
-/* lockscreen ------------------------------------------------------- */
+button,
+input {
+  font-family: "SUITE-Regular";
+}
+
+.DARK_MODE {
+  --main-color: black;
+  --secondary-color: white;
+}
+
+/* login screen ------------------------------------------------------- */
 .login_box {
   position: absolute;
   top: 50vh;
@@ -54,44 +85,26 @@ body {
   align-items: center;
 }
 
-.login_button_box {
-  height: 1vh;
+.input_name {
+  text-align: center;
+  margin: 10px 0;
+  padding: 8px;
+  width: 120%;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: rgba(235, 235, 235, 0.627);
 }
 
 .login_button {
-  margin-top: 1vh;
-  padding: 1vh;
-  position: relative;
-  height: 5vh;
+  padding: 10px;
   background-color: rgba(235, 235, 235, 0.627);
   border-radius: var(--border-radius);
   border: none;
-  font-weight: var(--font-weight-bold);
 }
 
 .login_button:hover {
   cursor: pointer;
   background-color: rgb(167, 162, 162);
-}
-
-.login_input {
-  margin: 0.3vh;
-  border-radius: var(--border-radius);
-  border: none;
-  background-color: rgba(255, 255, 255, 0.6);
-  color: rgba(0, 0, 0, 0.5);
-  height: 2vh;
-  width: 90%;
-  padding: 1vh;
-  font-size: var(--font-sm);
-}
-
-.lock_text {
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-bold);
-  margin-top: 1vh;
-  -webkit-text-stroke: 0.4px black;
-  color: white;
 }
 
 /* Header ------------------------------------------------------------------*/
@@ -102,27 +115,321 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 3vh;
-  color: white;
-  font-size: var(--font-sm);
+  color: var(--main-color);
+  font-size: var(--font-md);
+  background-color: var(--bar-color);
+  padding: 3px;
 }
 
 /* Header_inner*/
 .navbar_menus {
-  margin: 10px;
-  font-size: var(--font-sm);
-}
-.menus_logo {
-  margin-left: 6px;
-  font-weight: var(--font-weight-bold);
+  margin: 5px;
   font-size: var(--font-md);
+  text-align: center;
+}
+
+.menus_menu {
+  color: var(--main-color);
+  font-size: var(--font-md);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.menus_logo {
+  background-color: transparent;
+  margin-left: 6px;
+  border: none;
+  color: var(--main-color);
+  font-size: var(--font-lg);
+  cursor: pointer;
 }
 
 .menus_icons {
-  font-size: var(--font-sm);
+  font-size: var(--font-md);
   margin-right: 10px;
+}
+
+.logout_button {
+  position: relative;
+  left: 45px;
+  background-color: var(--bar-color);
+  border: none;
+  border-radius: var(--border-radius);
+  color: #c20000;
+  cursor: pointer;
+  margin: 3px;
+  padding: 10px;
 }
 
 /* main_content -------------------------------------------- */
 .main_content {
-  display: none;
+}
+
+/* 투두리스트 관련 */
+
+.topbar {
+  display: flex;
+  width: 100%;
+  height: 4vh;
+  padding: 10px;
+}
+.circle1 {
+  border-radius: 100%;
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.circle2 {
+  border-radius: 100%;
+  background-color: rgb(215, 152, 81);
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+.circle3 {
+  border-radius: 100%;
+  background-color: green;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+/*main--------------------------------------------------------------------------------------------*/
+
+.todo_container {
+  display: block;
+  background-color: var(--window-color);
+  width: 50%;
+  height: 80vh;
+  border-radius: 20px;
+  margin: 5px;
+  border: none;
+}
+
+.todo_main {
+  display: flex;
+}
+
+.vline {
+  border-left: thin solid #000000;
+  height: 80vh; /*header과 main을 합친 height값 */
+  position: absolute;
+  left: 20%;
+}
+
+.worklist {
+  width: 40%;
+  height: 80vh;
+}
+
+.worklist_middlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 3vh;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.list_container {
+  position: relative;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+}
+
+.category1 {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.category2 {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.visible1 {
+  font-weight: bold;
+}
+.visible1:hover {
+  background-color: rgba(123, 122, 122, 0.429);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.visible2 {
+  font-weight: bold;
+}
+.visible2:hover {
+  background-color: rgba(123, 122, 122, 0.429);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+.addworkbox {
+  width: 60%;
+  height: 76vh;
+}
+
+.addwork {
+  display: flex;
+  justify-content: center;
+}
+
+.addwork_middlebar {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  font-size: var(--font-lg);
+}
+
+.end_worklist {
+  display: block;
+  margin-left: 5%;
+}
+
+.end_worklist > div {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.todolist {
+  display: block;
+  margin-left: 5%;
+}
+
+.todolist > div {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.addwork_input {
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(225, 225, 225, 0.812);
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+.checkboxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox1:hover {
+  cursor: pointer;
+}
+
+.checkbox2:hover {
+  cursor: pointer;
+}
+.memo_input {
+  width: 70%;
+  height: 20vh;
+  display: flex;
+  background-color: rgba(225, 225, 225, 0.812);
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  padding: 10px;
+  resize: none;
+  border: 1px solid gray;
+}
+
+.addmemo {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addbuttonbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addbutton {
+  width: 75%;
+  height: 7vh;
+  background-color: rgb(195, 109, 192);
+  border: 1px solid gray;
+  color: white;
+  border-radius: 20px;
+}
+
+.addbutton:hover {
+  background-color: rgb(106, 17, 103);
+  cursor: pointer;
+  outline-style: none;
+}
+
+.errors {
+  display: flex; /*if문으로 조건 걸어서 잘못된 값 입력했을 경우 보이게 바꿔주기*/
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.error1 {
+  margin-right: 5px;
+}
+
+.error3 {
+  margin-left: 5px;
+}
+
+.error_msg {
+  display: none; /*if문으로 조건 걸어서 잘못된 값 입력했을 경우 보이게 바꿔주기*/
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: 1vh;
+}
+
+.span_todo {
+  font-size: var(--font-md);
+  font-weight: bold;
+  position: relative;
+  top: 2px;
+}
+.span_memo {
+  font-size: var(--font-sm);
+  background-color: rgba(255, 192, 203, 0.437);
+  margin: 2px;
+  position: relative;
+  top: 2px;
+}
+
+.button_todo {
+  width: 8%;
+  height: 2vh;
+  background-color: red;
+  font-size: var(--font-sm);
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0 1px;
+  margin: 0 2px;
+}
+.button_todo:hover {
+  background-color: rgb(158, 9, 9);
+  color: white;
+  cursor: pointer;
 }
