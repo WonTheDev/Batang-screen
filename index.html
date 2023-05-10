@@ -37,11 +37,10 @@
           <button class="menus_menu">지도</button>
         </ol>
         <div class="menus_icons">
-          <!-- <li class="fa-solid fa-keyboard"></li>
-            <li class="fa-solid fa-wifi"></li>
-            <li class="fa-solid fa-magnifying-glass"></li>
-            <li class="fa-solid fa-battery-three-quarters"></li>
-            <li class="fa-solid fa-bars-progress"></li> -->
+          <li></li>
+          <li></li>
+          <li></li>
+          <img class="weatherIcon" />
           <li id="clock"></li>
         </div>
       </div>
@@ -235,6 +234,78 @@
           </li>
         </div>
       </div>
+
+      <div class="wrap__music HIDDEN_V">
+        <div class="music__inner">
+          <div class="music__top">
+            <!-- 상단바 (Now Playing) -->
+            <i class="material-icons">expand_more</i>
+            <h3>Now Playing</h3>
+            <i class="material-icons">more_horiz</i>
+          </div>
+
+          <!-- // music__top -->
+          <div class="music_img">
+            <img src="/img/music-1.jpg" alt="이미지1" />
+          </div>
+          <!-- // music_img -->
+          <div class="music_song">
+            <p class="name"></p>
+            <p class="artist"></p>
+          </div>
+
+          <!-- // music_song -->
+          <div class="music_progress">
+            <div class="bar">
+              <audio id="main-audio" src=""></audio>
+            </div>
+            <div class="timer">
+              <span class="current">0:00</span>
+              <span class="duration">0:00</span>
+            </div>
+          </div>
+          <!-- // music_progress -->
+          <div class="music__control">
+            <i id="control-repeat" class="material-icons" title="전체 반복"
+              >repeat</i
+            >
+            <i id="control-prev" class="material-icons" title="이전곡"
+              >fast_rewind</i
+            >
+            <div class="play-pause">
+              <i id="control-play" class="material-icons" title="재생"
+                >play_arrow</i
+              >
+              <!-- <i class="material-icons">pause</i> -->
+              <!--정지버튼 -->
+            </div>
+            <i id="control-next" class="material-icons" title="다음곡"
+              >fast_forward</i
+            >
+            <i id="control-list" class="material-icons" title="재생목록"
+              >queue_music</i
+            >
+            <!-- <i class="material-icons">repeat_one</i>
+                <i class="material-icons">shuffle</i> -->
+          </div>
+          <!-- // music__control -->
+          <div class="music_list">
+            <div class="title">
+              <div>
+                <i class="material-icons queue">queue_music</i>
+                <span>Music List</span>
+              </div>
+              <i class="material-icons close">close</i>
+            </div>
+            <div class="list">
+              <ul>
+                <!-- Javascript -->
+              </ul>
+            </div>
+          </div>
+          <!-- // music_list -->
+        </div>
+      </div>
     </div>
     <!-- JavaScript -->
     <script src="js/login.js"></script>
@@ -242,5 +313,8 @@
     <script src="js/main.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/icon.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/weather.js"></script>
   </body>
 </html>

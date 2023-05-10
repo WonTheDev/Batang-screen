@@ -30,6 +30,16 @@
   --window-color: rgba(255, 255, 255, 0.8);
   --main-color: #aaa;
   --secondary-color: black;
+
+  --pink: #ff74a4;
+  --violet: #9f6ea3;
+  --white: #fff;
+  --lightshadow: rgba(0, 0, 0, 0.15);
+  --lightblack: #515c6f;
+  --pinkshadow: #ffcbdd;
+  --darkwhite: #cecaca;
+
+  --darkModeBackGround: rgba(66, 65, 65, 0.415);
 }
 
 /* Common tag ------------------------------------------------------- */
@@ -174,6 +184,12 @@ input {
   cursor: pointer;
   margin: 3px;
   padding: 10px;
+}
+
+.weatherIcon {
+  width: 50px;
+  height: 50px;
+  justify-content: baseline;
 }
 
 /* main_content -------------------------------------------- */
@@ -565,4 +581,201 @@ input {
   color: white;
   border-radius: 20px;
   cursor: pointer;
+}
+
+/* // music player // */
+
+.wrap__music {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  user-select: none;
+}
+.music__inner {
+  width: 350px; /*원래380*/
+  padding: 25px 30px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  background-color: rgba(66, 65, 65, 0.415); /*뮤직 박스 컬러*/
+  box-shadow: 0px 6px 10px rgba(47, 47, 47, 0.547);
+}
+
+.music__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(255, 255, 255); /*상단바 폰트컬러*/
+}
+.music__top i {
+  font-size: 30px;
+}
+.music__top h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.music_img {
+  /*앨범의 이미지 밖의 하얀 네오 */
+  width: 100%;
+  height: 256px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-top: 25px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.music_img img {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  object-fit: contain;
+}
+.music_song {
+  text-align: center;
+  margin: 30px;
+}
+.music_song p {
+  color: white;
+}
+.music_song .name {
+  font-size: 20px;
+}
+.music_song .artist {
+  font-size: 15px;
+  opacity: 0.9;
+  line-height: 35px;
+  font-weight: 300;
+}
+.music_progress {
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #777676; /*기본 바 색상*/
+  cursor: pointer;
+}
+.music_progress .bar {
+  height: inherit;
+  width: 0%;
+  position: relative;
+  border-radius: inherit;
+  background: rgb(255, 255, 255); /*움직이는 바 색상*/
+}
+.music_progress .timer {
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(180, 180, 180); /*시간표시 폰트 컬러*/
+  font-size: 0.9em;
+  pointer-events: none;
+}
+.music__control {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.music__control #control-prev:hover {
+  /*이전버튼 hover*/
+  font-size: 2.8vw;
+}
+.music__control #control-next:hover {
+  /*다음버튼 hover*/
+  font-size: 2.8vw;
+}
+
+.music__control i {
+  /*여기서 버튼들 색깔 바꾼다*/
+  font-size: 28px;
+  user-select: none;
+  background: white;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.music__control i:nth-child(2),
+.music__control i:nth-child(4) {
+  font-size: 40px;
+}
+
+.music__control .play-pause {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.music__control .play-pause::before {
+  content: "";
+  position: absolute;
+}
+.music__control .play-pause #control-play {
+  opacity: 0.8; /* 재생버튼 ▶ */
+  font-size: 4vw; /* 재생버튼크기 */
+}
+.music__control .play-pause #control-play:hover {
+  /*재생버튼 마우스 올렸을 때 */
+  font-size: 4.3vw;
+}
+
+.music_list {
+  position: absolute;
+  background: var(--white);
+  width: 100%;
+  left: 0;
+  bottom: -400px;
+  z-index: 10;
+  border-radius: 15px;
+  padding: 15px 30px;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.15s ease-out;
+  opacity: 0;
+  pointer-events: none;
+}
+.music_list.show {
+  bottom: 0;
+  opacity: 1;
+  pointer-events: auto;
+}
+.music_list .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--lightblack);
+  margin-bottom: 10px;
+}
+.title .queue {
+  vertical-align: -5px;
+}
+.music_list .list {
+  color: var(--lightblack);
+}
+.music_list .list > ul {
+  max-height: 260px;
+  margin: 10px 0;
+  overflow: auto;
+}
+.music_list .list > ul::-webkit-scrollbar {
+  width: 0;
+}
+.music_list .list > ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+.music_list .list > ul > li.playing {
+  color: var(--pinkshadow);
+}
+.music_list .list > ul > li > div em {
+  font-style: normal;
+}
+.music_list .list > ul > li > div p {
+  opacity: 0.8;
 }

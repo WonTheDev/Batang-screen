@@ -97,7 +97,6 @@ let rIcons = [];
 
 function saveIcons() {
   localStorage.setItem(rememberIcons, JSON.stringify(rIcons));
-  console.log(localStorage.setItem(rememberIcons, JSON.stringify(rIcons)));
 }
 /* load */
 function loadIcons() {
@@ -105,18 +104,19 @@ function loadIcons() {
   if (getList === null) {
   } else {
     getList.forEach(function (icons) {
-      loadSetting(icons.icon, icons.value);
+      loadSetting(icons.icon, icons.value, icons.color);
     });
   }
 }
 /* load icons */
 
-const loadSetting = function (whaticon, whatsite) {
+const loadSetting = function (whaticon, whatsite, whatcolor) {
   let makeIconsLink = document.createElement("a");
   let makeIcons = document.createElement("li");
   addClassWhat(makeIconsLink, "remove_event");
   addClassWhat(makeIconsLink, "DISPLAY_F");
   addClassWhat(makeIconsLink, "FLEX_C");
+  makeIconsLink.style.color = whatcolor;
 
   iconsEvent();
 
@@ -157,6 +157,13 @@ const iconsEvent = function () {
           } else {
             alert("삭제되었습니다");
             delete_icon_active.remove();
+            const result = rIcons.filter(function (numvalue) {
+              console.log(numvalue.Num);
+              console.log(delete_icon_active.id);
+              return numvalue.Num !== parseInt(delete_icon_active.id);
+            });
+            rIcons = result;
+            saveIcons();
           }
         });
         removeClassWhat(delete_icon_active, "remove_event");
@@ -177,11 +184,10 @@ mouseleaveEvent(addIcons, function () {
 });
 
 /* add icon click event */
-// clickEvent(addIcons, function () {
-//   removeClassWhat(addPage, "HIDDEN_D");
-//   addClassWhat(addPage, "DISPLAY_F");
-
-// });
+clickEvent(addIcons, function () {
+  removeClassWhat(addPage, "HIDDEN_D");
+  addClassWhat(addPage, "DISPLAY_F");
+});
 
 addIcons.addEventListener("click", () => {
   addPage.classList.toggle("HIDDEN_V");
@@ -236,12 +242,13 @@ clickEvent(smileIcon, function () {
   clickIcons(imageIcon, fooIcon, houseIcon, smileIcon);
 });
 
-/* press_enter */
-whatEvent(document, "keyup", function (key_press) {});
-
+/* get randomcolor */
+function getrandomcolor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
 document.addEventListener("keyup", (key_press) => {
   /* add_page on? off? */
-  if (!document.getElementById("add-page").classList.contains("HIDDEN_D")) {
+  if (addPage.classList.contains("DISPLAY_F")) {
     if (key_press.key === "Enter") {
       const siteValue = getValue("add-site");
       const nameValue = getValue("add-name");
@@ -259,6 +266,9 @@ document.addEventListener("keyup", (key_press) => {
         addClassWhat(makeIconsLink, "FLEX_C");
         addClassWhat(makeIconsLink, "remove_event");
         makeIconsLink.target = "_blank";
+        const colorvalue = getrandomcolor();
+        makeIcons.style.color = colorvalue;
+        const id = Date.now();
 
         /* where we go? || what name? */
         makeIconsLink.href = siteValue;
@@ -280,7 +290,8 @@ document.addEventListener("keyup", (key_press) => {
             savingIcons = {
               icon: "house",
               value: siteValue,
-              Num: rIcons.length + 1,
+              color: colorvalue,
+              Num: id,
             };
           }
           if (containClassWhat(smileIcon, "if_click_icon")) {
@@ -288,9 +299,11 @@ document.addEventListener("keyup", (key_press) => {
             addClassWhat(makeIcons, "fa-face-smile");
 
             savingIcons = {
-              icon: "house",
+              icon: "smile",
               value: siteValue,
-              Num: rIcons.length + 1,
+              color: colorvalue,
+
+              Num: id,
             };
           }
           if (containClassWhat(fooIcon, "if_click_icon")) {
@@ -300,7 +313,9 @@ document.addEventListener("keyup", (key_press) => {
             savingIcons = {
               icon: "poo",
               value: siteValue,
-              Num: rIcons.length + 1,
+              color: colorvalue,
+
+              Num: id,
             };
           }
           if (containClassWhat(imageIcon, "if_click_icon")) {
@@ -310,16 +325,20 @@ document.addEventListener("keyup", (key_press) => {
             savingIcons = {
               icon: "image",
               value: siteValue,
-              Num: rIcons.length + 1,
+              color: colorvalue,
+
+              Num: id,
             };
           }
 
+          makeIconsLink.id = savingIcons.Num;
           makeIconsLink.appendChild(makeIcons);
           bottomIcons = makeIconsLink;
           bottomBars.prepend(bottomIcons);
           console.log(savingIcons);
           rIcons.push(savingIcons);
           saveIcons(icons);
+          console.log(rIcons);
 
           /* add delete event */
           iconsEvent();
@@ -331,9 +350,8 @@ document.addEventListener("keyup", (key_press) => {
 /* close add page */
 whatEvent(document, "keyup", function (key_code) {
   if (key_code.key === "Escape") {
-    if (addPage.classList.contains("DISPLAY_F")) {
-      addPage.classList.remove("DISPLAY_F");
-      addPage.classList.add("HIDDEN_D");
+    if (!addPage.classList.contains("HIDDEN_V")) {
+      addPage.classList.add("HIDDEN_V");
       reset_icons(houseIcon, imageIcon, fooIcon, smileIcon);
     }
   }
