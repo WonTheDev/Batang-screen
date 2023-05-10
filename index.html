@@ -26,7 +26,7 @@
     <header>
       <div id="navbar" class="navbar HIDDEN_V">
         <ol class="navbar_menus">
-          <button type="button" class="menus_logo" id="switchButton">
+          <button type="button" class="menus_logo" id="switch-button">
             <i class="fa-brands fa-apple"></i>
           </button>
           <button id="dropdown-button" class="menus_menu">
@@ -182,11 +182,65 @@
         </div>
       </div>
       <!-- 투두리스트 끝 -->
+      <!--buttom_bars-->
+      <div id="bottom-bars" class="DISPLAY_F bottom_bars_style">
+        <a
+          href="https://www.youtube.com"
+          class="fa-brands fa-youtube remove_event"
+          target="_blank"
+          style="color: #c4302b"
+        >
+        </a>
+
+        <a
+          href="https://www.instagram.com"
+          class="fa-brands fa-instagram remove_event"
+          target="_blank"
+          style="color: #8134af"
+        >
+        </a>
+
+        <a
+          href="https://www.google.com"
+          class="fa-brands fa-google remove_event"
+          target="_blank"
+          style="color: #4285f4"
+        >
+          <!-- <li class="fa-brands fa-google"></li> -->
+        </a>
+
+        <li id="add-icons" class="fa-solid fa-circle-plus"></li>
+        <!--add page-->
+      </div>
+      <div id="add-page" class="HIDDEN_V add_page_style">
+        <div class="icons_box">
+          <li id="house-icon" class="fa-solid fa-house"></li>
+          <li id="image-icon" class="fa-solid fa-image"></li>
+          <li id="foo-icon" class="fa-solid fa-poo"></li>
+          <li id="smile-icon" class="fa-regular fa-face-smile"></li>
+        </div>
+        <div class="add_page_addside DISPLAY_F">
+          <li>
+            <input id="add-name" type="text" placeholder="이름을 입력" />
+          </li>
+          <li>
+            <input
+              id="add-site"
+              type="text"
+              placeholder="이동할 사이트를 입력"
+            />
+          </li>
+          <li>
+            <button class="addicon_button">아이콘 추가</button>
+          </li>
+        </div>
+      </div>
     </div>
     <!-- JavaScript -->
     <script src="js/login.js"></script>
     <script src="js/clock.js"></script>
-    <script src="js/todo.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/icon.js"></script>
   </body>
 </html>

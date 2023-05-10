@@ -1,6 +1,6 @@
 // d라이트/다크 모드
 const currentColor = document.body;
-const colorSwitch = document.querySelector("#switchButton");
+const colorSwitch = document.querySelector("#switch-button");
 
 colorSwitch.addEventListener("click", () => {
   currentColor.classList.toggle("DARK_MODE");
