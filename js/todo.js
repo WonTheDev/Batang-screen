@@ -163,7 +163,6 @@ addButton.addEventListener("click", function (e) {
   //추가 버튼 눌렀을 떄 할 일 , 메모 추가하기
   if (checkBox1.checked && checkBox2.checked) {
     //둘 다 체크 되었을 경우 (경고 메세지 출력)
-    console.log("둘다 체크!");
     if (input.value.length !== 0 && memo.value.length !== 0) {
       errorMsg.textContent = "하나의 항목에만 체크해주세요";
       visible();
@@ -187,7 +186,6 @@ addButton.addEventListener("click", function (e) {
     }
   } else if (checkBox1.checked === false && checkBox2.checked === true) {
     //할 일 체크 (할 일에 추가)
-    console.log("할일 체크 ! ");
     if (input.value.length !== 0 && memo.value.length !== 0) {
       //성공
       errorMsg.textContent = "할 일에 추가되었습니다";
@@ -200,7 +198,6 @@ addButton.addEventListener("click", function (e) {
     }
   } else if (!(checkBox1.checked && checkBox2.checked)) {
     //둘 다 체크 안되었을 경우 (경고 메세지 출력)
-    console.log("둘다 낫 체크!");
     errorMsg.textContent = "모든 항목을 입력하세요";
     visible();
   }

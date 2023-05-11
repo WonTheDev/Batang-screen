@@ -16,7 +16,7 @@
   --window-color: rgba(255, 255, 255, 0.8);
   --main-color: black;
   --secondary-color: #aaa;
-  --highlight-color: rgba(255, 190, 200, 0.437);
+  --highlight-color: rgba(255, 155, 170, 0.437);
 
   --pink: #ff74a4;
   --violet: #9f6ea3;
@@ -83,7 +83,7 @@ input {
   --black: white;
   --window-color: rgba(0, 0, 0, 0.6);
   --bar-color: rgba(0, 0, 0, 0.2);
-  --highlight-color: rgba(255, 65, 55, 0.6);
+  --highlight-color: rgba(251, 210, 123, 0.437);
 }
 
 /* login screen ------------------------------------------------------- */
