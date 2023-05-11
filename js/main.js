@@ -66,19 +66,24 @@ const randHoldImg = [
   "background27.jpg",
   "background28.jpg",
 ];
-//시작하자마자 실행
-// let randNum = Math.floor(Math.random() * randHoldImg.length()); //0~배열길이 만큼까지 난수 생성
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   //처음 시작할때 이미지
-//   document.querySelector(".backgroundImg").src = randHoldImg[randNum]; //랜덤한 이미지 출력
-//   beforeNum = randNum;
-//   console.log(beforeNum);
-// });
 // 로고를 클릭 했을 시 배경이미지 바꿔주기
 const bgButtonClick = document.querySelector("#bg-button");
 const bgImg = document.querySelector(".background_img");
+const backgroundNumKey = "backgroundNum";
 let beforeNum = 0;
+let backgroundNum = [];
+
+let beforeBackgroundNum = localStorage.getItem(backgroundNumKey);
+if (!beforeBackgroundNum) {
+  //빈 값일 경우
+  bgImg.style.backgroundImage = `url(../img/${randHoldImg[0]})`;
+} else {
+  // 스토리지에 저장된 값이 있을 경우
+  bgImg.style.backgroundImage = `url(../img/${
+    randHoldImg[beforeBackgroundNum - 1]
+  })`; //아닐 경우 이전 인덱스 이미지를 출력
+}
 
 function changeImg() {
   randNum = Math.floor(Math.random() * randHoldImg.length); //0~배열길이 만큼까지 난수 생성
@@ -88,7 +93,8 @@ function changeImg() {
       randNum = Math.floor(Math.random() * randHoldImg.length);
       continue;
     } else {
-      bgImg.style.backgroundImage = `url(../img/${randHoldImg[randNum]})`; //아닐 경우 랜덤한 이미지 출력
+      bgImg.style.backgroundImage = `url(../img/${randHoldImg[randNum - 1]})`; //아닐 경우 랜덤한 이미지 출력
+      localStorage.setItem(backgroundNumKey, JSON.stringify(parseInt(randNum)));
       beforeNum = randNum;
       break;
     }

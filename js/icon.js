@@ -150,7 +150,6 @@ const iconsEvent = function () {
     .querySelectorAll(".remove_event")
     .forEach(function (delete_icon_active) {
       if (containClassWhat(delete_icon_active, "remove_event")) {
-        // console.log("adv");
         whatEvent(delete_icon_active, "contextmenu", function () {
           if (!confirm("삭제하시겠습니까?")) {
             alert("삭제취소");
