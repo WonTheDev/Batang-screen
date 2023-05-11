@@ -85,10 +85,10 @@ function changeImg() {
   while (1) {
     if (beforeNum === randNum) {
       //이전 숫자와 중복 될 경우 새로운 randNum 생성
-      randNum = Math.floor(Math.random() * randHoldImg.length());
+      randNum = Math.floor(Math.random() * randHoldImg.length);
       continue;
     } else {
-      bgImg.style.backgroundImage = `url(/img/${randHoldImg[randNum]})`; //아닐 경우 랜덤한 이미지 출력
+      bgImg.style.backgroundImage = `url(../img/${randHoldImg[randNum]})`; //아닐 경우 랜덤한 이미지 출력
       beforeNum = randNum;
       break;
     }

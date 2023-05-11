@@ -5,21 +5,7 @@
   font-weight: 400;
   font-style: normal;
 }
-@font-face {
-  font-family: "SUITE-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
-    format("woff2");
-  font-weight: 800;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: "DOSPilgiMedium";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSPilgiMedium.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
 :root {
   --font-sm: 12px;
   --font-md: 16px;
@@ -74,7 +60,7 @@ body {
 }
 
 .background_img {
-  background-image: url(/img/background1.jpg);
+  background-image: url(../img/background1.jpg);
   background-position: center;
   height: 100vh;
   background-size: cover;
@@ -139,6 +125,8 @@ input {
 
 /* body_Header */
 .navbar {
+  position: relative;
+  top: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -216,8 +204,6 @@ input {
 }
 
 /* main_content -------------------------------------------- */
-.main_content {
-}
 
 /* 투두리스트 관련 */
 

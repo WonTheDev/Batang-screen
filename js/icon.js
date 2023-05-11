@@ -150,7 +150,7 @@ const iconsEvent = function () {
     .querySelectorAll(".remove_event")
     .forEach(function (delete_icon_active) {
       if (containClassWhat(delete_icon_active, "remove_event")) {
-        console.log("adv");
+        // console.log("adv");
         whatEvent(delete_icon_active, "contextmenu", function () {
           if (!confirm("삭제하시겠습니까?")) {
             alert("삭제취소");
@@ -158,8 +158,8 @@ const iconsEvent = function () {
             alert("삭제되었습니다");
             delete_icon_active.remove();
             const result = rIcons.filter(function (numvalue) {
-              console.log(numvalue.Num);
-              console.log(delete_icon_active.id);
+              // console.log(numvalue.Num);
+              // console.log(delete_icon_active.id);
               return numvalue.Num !== parseInt(delete_icon_active.id);
             });
             rIcons = result;
