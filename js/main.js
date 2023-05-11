@@ -77,10 +77,10 @@ let backgroundNum = [];
 let beforeBackgroundNum = localStorage.getItem(backgroundNumKey);
 if (!beforeBackgroundNum) {
   //빈 값일 경우
-  bgImg.style.backgroundImage = `url(/img/${randHoldImg[0]})`;
+  bgImg.style.backgroundImage = `url(img/${randHoldImg[0]})`;
 } else {
   // 스토리지에 저장된 값이 있을 경우
-  bgImg.style.backgroundImage = `url(/img/${
+  bgImg.style.backgroundImage = `url(img/${
     randHoldImg[beforeBackgroundNum - 1]
   })`; //아닐 경우 이전 인덱스 이미지를 출력
 }
@@ -93,7 +93,7 @@ function changeImg() {
       randNum = Math.floor(Math.random() * randHoldImg.length);
       continue;
     } else {
-      bgImg.style.backgroundImage = `url(/img/${randHoldImg[randNum - 1]})`; //아닐 경우 랜덤한 이미지 출력
+      bgImg.style.backgroundImage = `url(img/${randHoldImg[randNum - 1]})`; //아닐 경우 랜덤한 이미지 출력
       localStorage.setItem(backgroundNumKey, JSON.stringify(parseInt(randNum)));
       beforeNum = randNum;
       break;
