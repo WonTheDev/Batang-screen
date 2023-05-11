@@ -248,112 +248,122 @@ function getrandomcolor() {
 }
 document.addEventListener("keyup", (key_press) => {
   /* add_page on? off? */
-  if (addPage.classList.contains("DISPLAY_F")) {
-    if (key_press.key === "Enter") {
-      const siteValue = getValue("add-site");
-      const nameValue = getValue("add-name");
-      /* is value null? */
-      if (!siteValue || !nameValue) {
-        alert("이름 혹은 사이트를 입력해 주세요.");
-      } else {
-        /* set-up */
-        let savingIcons = {};
-        let icons = [];
-        let makeIconsLink = document.createElement("a");
-        let makeIcons = document.createElement("li");
-        let makeIconsName = document.createElement("p");
-        addClassWhat(makeIconsLink, "DISPLAY_F");
-        addClassWhat(makeIconsLink, "FLEX_C");
-        addClassWhat(makeIconsLink, "remove_event");
-        makeIconsLink.target = "_blank";
-        const colorvalue = getrandomcolor();
-        makeIcons.style.color = colorvalue;
-        const id = Date.now();
-
-        /* where we go? || what name? */
-        makeIconsLink.href = siteValue;
-        makeIconsName.innerText = nameValue;
-
-        /* what icons in a new? */
-        if (
-          !containClassWhat(houseIcon, "if_click_icon") &&
-          !containClassWhat(smileIcon, "if_click_icon") &&
-          !containClassWhat(imageIcon, "if_click_icon") &&
-          !containClassWhat(fooIcon, "if_click_icon")
-        ) {
-          alert("아이콘을 선택해주세요.");
-        } else {
-          if (containClassWhat(houseIcon, "if_click_icon")) {
-            addClassWhat(makeIcons, "fa-house");
-            addClassWhat(makeIcons, "fa-solid");
-
-            savingIcons = {
-              icon: "house",
-              value: siteValue,
-              color: colorvalue,
-              Num: id,
-            };
-          }
-          if (containClassWhat(smileIcon, "if_click_icon")) {
-            addClassWhat(makeIcons, "fa-regular");
-            addClassWhat(makeIcons, "fa-face-smile");
-
-            savingIcons = {
-              icon: "smile",
-              value: siteValue,
-              color: colorvalue,
-
-              Num: id,
-            };
-          }
-          if (containClassWhat(fooIcon, "if_click_icon")) {
-            addClassWhat(makeIcons, "fa-solid");
-            addClassWhat(makeIcons, "fa-poo");
-
-            savingIcons = {
-              icon: "poo",
-              value: siteValue,
-              color: colorvalue,
-
-              Num: id,
-            };
-          }
-          if (containClassWhat(imageIcon, "if_click_icon")) {
-            addClassWhat(makeIcons, "fa-solid");
-            addClassWhat(makeIcons, "fa-image");
-
-            savingIcons = {
-              icon: "image",
-              value: siteValue,
-              color: colorvalue,
-
-              Num: id,
-            };
-          }
-
-          makeIconsLink.id = savingIcons.Num;
-          makeIconsLink.appendChild(makeIcons);
-          bottomIcons = makeIconsLink;
-          bottomBars.prepend(bottomIcons);
-          console.log(savingIcons);
-          rIcons.push(savingIcons);
-          saveIcons(icons);
-          console.log(rIcons);
-
-          /* add delete event */
-          iconsEvent();
-        }
-      }
-    }
+  if (key_press.key === "Enter") {
+    iconCreate();
   }
 });
+
+function iconCreate() {
+  const siteValue = getValue("add-site");
+  const nameValue = getValue("add-name");
+  /* is value null? */
+  if (!siteValue || !nameValue) {
+    if (addPage.classList.contains("DISPLAY_F")) {
+      alert("이름 혹은 사이트를 입력해 주세요.");
+    }
+  } else {
+    /* set-up */
+    let savingIcons = {};
+    let icons = [];
+    let makeIconsLink = document.createElement("a");
+    let makeIcons = document.createElement("li");
+    let makeIconsName = document.createElement("p");
+    addClassWhat(makeIconsLink, "DISPLAY_F");
+    addClassWhat(makeIconsLink, "FLEX_C");
+    addClassWhat(makeIconsLink, "remove_event");
+    makeIconsLink.target = "_blank";
+    const colorvalue = getrandomcolor();
+    makeIcons.style.color = colorvalue;
+    const id = Date.now();
+
+    /* where we go? || what name? */
+    makeIconsLink.href = siteValue;
+    makeIconsName.innerText = nameValue;
+
+    /* what icons in a new? */
+    if (
+      !containClassWhat(houseIcon, "if_click_icon") &&
+      !containClassWhat(smileIcon, "if_click_icon") &&
+      !containClassWhat(imageIcon, "if_click_icon") &&
+      !containClassWhat(fooIcon, "if_click_icon")
+    ) {
+      alert("아이콘을 선택해주세요.");
+    } else {
+      if (containClassWhat(houseIcon, "if_click_icon")) {
+        addClassWhat(makeIcons, "fa-house");
+        addClassWhat(makeIcons, "fa-solid");
+
+        savingIcons = {
+          icon: "house",
+          value: siteValue,
+          color: colorvalue,
+          Num: id,
+        };
+      }
+      if (containClassWhat(smileIcon, "if_click_icon")) {
+        addClassWhat(makeIcons, "fa-regular");
+        addClassWhat(makeIcons, "fa-face-smile");
+
+        savingIcons = {
+          icon: "smile",
+          value: siteValue,
+          color: colorvalue,
+
+          Num: id,
+        };
+      }
+      if (containClassWhat(fooIcon, "if_click_icon")) {
+        addClassWhat(makeIcons, "fa-solid");
+        addClassWhat(makeIcons, "fa-poo");
+
+        savingIcons = {
+          icon: "poo",
+          value: siteValue,
+          color: colorvalue,
+
+          Num: id,
+        };
+      }
+      if (containClassWhat(imageIcon, "if_click_icon")) {
+        addClassWhat(makeIcons, "fa-solid");
+        addClassWhat(makeIcons, "fa-image");
+
+        savingIcons = {
+          icon: "image",
+          value: siteValue,
+          color: colorvalue,
+
+          Num: id,
+        };
+      }
+
+      makeIconsLink.id = savingIcons.Num;
+      makeIconsLink.appendChild(makeIcons);
+      bottomIcons = makeIconsLink;
+      bottomBars.prepend(bottomIcons);
+      console.log(savingIcons);
+      rIcons.push(savingIcons);
+      saveIcons(icons);
+      console.log(rIcons);
+
+      /* add delete event */
+      iconsEvent();
+    }
+  }
+}
+
+const addIconButton = document.querySelector("#addicon-button");
+addIconButton.addEventListener("click", iconCreate);
+
 /* close add page */
 whatEvent(document, "keyup", function (key_code) {
   if (key_code.key === "Escape") {
-    if (!addPage.classList.contains("HIDDEN_V")) {
-      addPage.classList.add("HIDDEN_V");
-      reset_icons(houseIcon, imageIcon, fooIcon, smileIcon);
-    }
+    // if (!addPage.classList.contains("HIDDEN_V")) {
+    addPage.classList.add("HIDDEN_V");
+    todoDisplay.classList.add("HIDDEN_V");
+
+    reset_icons(houseIcon, imageIcon, fooIcon, smileIcon);
+    // }
   }
 });
 

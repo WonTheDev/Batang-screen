@@ -1,6 +1,6 @@
 const API_KEY = "fc268c92eb56eb269733384eed8c4f1a";
 
-const weatherIconImg = document.querySelector(".weatherIcon");
+const weatherIconImg = document.querySelector(".weather_icon");
 
 const weatherDescKo = {
   201: "가벼운 비를 동반한 천둥구름",
@@ -99,9 +99,9 @@ function getSuccess(position) {
       const name = document.querySelector(".menus_icons li:nth-child(1)");
       const temp = document.querySelector(".menus_icons li:nth-child(2)");
       const weather = document.querySelector(".menus_icons li:nth-child(3)");
-      name.innerText = area;
+      name.innerText = area + ", ";
       temp.innerText = nowTemp + "˚C";
-      weather.innerText = nowWeather;
+      // weather.innerText = nowWeather;
       weatherIconImg.setAttribute("src", weatherIconAdrs);
       // console.log("changed");
     });

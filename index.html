@@ -14,6 +14,14 @@
     <!-- Main_css -->
 
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
 
     <!-- font awesome -->
     <script
@@ -21,7 +29,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="DARK_MODE">
+  <body class="DARK_MODE background_img">
     <!-- bars -->
     <header>
       <div id="navbar" class="navbar HIDDEN_V">
@@ -33,15 +41,15 @@
             <span id="login-username" class="menus_menu"></span>
           </button>
           <button class="menus_menu" id="todo-button">투두리스트</button>
-          <button class="menus_menu">음악</button>
-          <button class="menus_menu">지도</button>
+          <button class="menus_menu" id="player-button">음악</button>
+          <button class="menus_menu" id="bg-button">배경화면</button>
         </ol>
         <div class="menus_icons">
           <li></li>
           <li></li>
           <li></li>
-          <img class="weatherIcon" />
-          <li id="clock"></li>
+          <img class="weather_icon" />
+          <li id="clock" class="clock_text"></li>
         </div>
       </div>
       <button id="logout-button" class="logout_button HIDDEN_D">
@@ -81,14 +89,14 @@
           <div class="worklist">
             <div class="worklist_middlebar">
               <div class="todo_title">Projects</div>
-              <i class="fa-solid fa-user" class="person_icon"> </i>
+              <i class="fa-solid fa-user person_icon"> </i>
             </div>
             <hr />
 
             <div class="categorys">
               <div class="category2">
                 <div class="visible2" id="visible2">▼</div>
-                <div>&nbsp; &nbsp;할 일</div>
+                <div class="todolist_title">&nbsp; &nbsp;할 일</div>
               </div>
 
               <div class="todolist" id="todolist">
@@ -97,7 +105,7 @@
 
               <div class="category1">
                 <div class="visible1" id="visible1">▼</div>
-                <div>&nbsp; &nbsp;작업 완료</div>
+                <div class="end_worklist_title">&nbsp; &nbsp;작업 완료</div>
               </div>
 
               <div class="end_worklist" id="end-worklist">
@@ -108,7 +116,9 @@
 
           <div class="addworkbox">
             <div class="addwork_middlebar">
-              <div style="font-weight: bold">ToDo List</div>
+              <div class="addworkbox_title" style="font-weight: bold">
+                ToDo List
+              </div>
             </div>
             <br />
             <br />
@@ -140,14 +150,14 @@
             <br />
             <br />
             <div class="checkboxes">
-              <div>Projects | &nbsp;&nbsp;&nbsp;</div>
-              <label>
+              <div class="checkboxes_title">Projects | &nbsp;&nbsp;&nbsp;</div>
+              <label class="checkbox_title">
                 <input type="checkbox" class="checkbox1" id="checkbox1" />작업
                 완료</label
               >
 
               &nbsp;&nbsp;&nbsp;
-              <label>
+              <label class="checkbox_title">
                 <input type="checkbox" class="checkbox2" id="checkbox2" />할
                 일</label
               >
@@ -208,7 +218,7 @@
           <!-- <li class="fa-brands fa-google"></li> -->
         </a>
 
-        <li id="add-icons" class="fa-solid fa-circle-plus"></li>
+        <li id="add-icons" class="addicon_plus fa-solid fa-circle-plus"></li>
         <!--add page-->
       </div>
       <div id="add-page" class="HIDDEN_V add_page_style">
@@ -230,7 +240,9 @@
             />
           </li>
           <li>
-            <button class="addicon_button">아이콘 추가</button>
+            <button id="addicon-button" class="addicon_button">
+              아이콘 추가
+            </button>
           </li>
         </div>
       </div>

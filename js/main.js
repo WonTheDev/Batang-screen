@@ -22,6 +22,7 @@ logoutButton.addEventListener("click", () => {
 const todoDisplay = document.querySelector("#todo-container");
 const todoButtonClick = document.querySelector("#todo-button");
 const closeButtonClick = document.querySelector("#close-button");
+const playerButtonClick = document.querySelector("#player-button");
 
 todoButtonClick.addEventListener("click", () => {
   todoDisplay.classList.toggle("HIDDEN_V");
@@ -30,3 +31,67 @@ todoButtonClick.addEventListener("click", () => {
 closeButtonClick.addEventListener("click", () => {
   todoDisplay.classList.toggle("HIDDEN_V");
 });
+
+playerButtonClick.addEventListener("click", () => {
+  musicWrap.classList.toggle("HIDDEN_V");
+});
+
+const randHoldImg = [
+  "background1.jpg",
+  "background2.jpg",
+  "background3.jpg",
+  "background4.jpg",
+  "background5.jpg",
+  "background6.jpg",
+  "background7.jpg",
+  "background8.jpg",
+  "background9.jpg",
+  "background10.jpg",
+  "background11.jpg",
+  "background12.jpg",
+  "background13.jpg",
+  "background14.jpg",
+  "background15.jpg",
+  "background16.jpg",
+  "background17.jpg",
+  "background18.jpg",
+  "background19.jpg",
+  "background20.jpg",
+  "background21.jpg",
+  "background22.jpg",
+  "background23.jpg",
+  "background24.jpg",
+  "background25.jpg",
+  "background26.jpg",
+  "background27.jpg",
+  "background28.jpg",
+];
+//시작하자마자 실행
+// let randNum = Math.floor(Math.random() * randHoldImg.length()); //0~배열길이 만큼까지 난수 생성
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   //처음 시작할때 이미지
+//   document.querySelector(".backgroundImg").src = randHoldImg[randNum]; //랜덤한 이미지 출력
+//   beforeNum = randNum;
+//   console.log(beforeNum);
+// });
+// 로고를 클릭 했을 시 배경이미지 바꿔주기
+const bgButtonClick = document.querySelector("#bg-button");
+const bgImg = document.querySelector(".background_img");
+let beforeNum = 0;
+
+function changeImg() {
+  randNum = Math.floor(Math.random() * randHoldImg.length); //0~배열길이 만큼까지 난수 생성
+  while (1) {
+    if (beforeNum === randNum) {
+      //이전 숫자와 중복 될 경우 새로운 randNum 생성
+      randNum = Math.floor(Math.random() * randHoldImg.length());
+      continue;
+    } else {
+      bgImg.style.backgroundImage = `url(/img/${randHoldImg[randNum]})`; //아닐 경우 랜덤한 이미지 출력
+      beforeNum = randNum;
+      break;
+    }
+  }
+}
+bgButtonClick.addEventListener("click", changeImg);

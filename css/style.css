@@ -28,8 +28,8 @@
   --font-weight-bold: 800;
   --bar-color: rgba(255, 255, 255, 0.1);
   --window-color: rgba(255, 255, 255, 0.8);
-  --main-color: #aaa;
-  --secondary-color: black;
+  --main-color: black;
+  --secondary-color: #aaa;
 
   --pink: #ff74a4;
   --violet: #9f6ea3;
@@ -71,8 +71,10 @@ li {
 body {
   font-family: "SUITE-Regular";
   transform: rotate(0.04deg);
-  background-image: url(../img/luca-micheli-ruWkmt3nU58-unsplash.jpg);
-  background-repeat: no-repeat;
+}
+
+.background_img {
+  background-image: url(/img/background1.jpg);
   background-position: center;
   height: 100vh;
   background-size: cover;
@@ -85,8 +87,11 @@ input {
 }
 
 .DARK_MODE {
-  --main-color: black;
+  --main-color: #aaa;
   --secondary-color: white;
+  --black: white;
+  --window-color: rgba(0, 0, 0, 0.6);
+  --bar-color: rgba(0, 0, 0, 0.2);
 }
 
 /* login screen ------------------------------------------------------- */
@@ -149,6 +154,9 @@ input {
   margin: 5px;
   font-size: var(--font-md);
   text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .menus_menu {
@@ -170,8 +178,23 @@ input {
 }
 
 .menus_icons {
+  display: flex;
   font-size: var(--font-md);
+  position: relative;
   margin-right: 10px;
+  flex-wrap: nowrap;
+  padding-top: 1.3vh;
+}
+
+.weather_icon {
+  position: relative;
+  height: 30px;
+  bottom: 0.7vh;
+  width: 10%;
+}
+
+.clock_text {
+  white-space: nowrap;
 }
 
 .logout_button {
@@ -240,19 +263,44 @@ input {
   border: none;
 }
 
+.todo_title {
+  color: var(--main-color);
+}
+
+.person_icon {
+  color: var(--main-color);
+}
+
+.todolist_title {
+  color: var(--main-color);
+}
+
+.end_worklist_title {
+  color: var(--main-color);
+}
+
+.checkboxes_title {
+  color: var(--main-color);
+}
+
+.addworkbox_title {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
 .todo_main {
   display: flex;
 }
 
 .vline {
-  border-left: thin solid #000000;
+  border-left: thin solid var(--main-color);
   height: 80vh; /*header과 main을 합친 height값 */
   position: absolute;
   left: 20%;
 }
 
 .worklist {
-  width: 40%;
+  width: 39%;
   height: 80vh;
 }
 
@@ -289,6 +337,7 @@ input {
 }
 
 .visible1 {
+  color: var(--main-color);
   font-weight: bold;
 }
 .visible1:hover {
@@ -298,6 +347,7 @@ input {
 }
 
 .visible2 {
+  color: var(--main-color);
   font-weight: bold;
 }
 .visible2:hover {
@@ -359,6 +409,10 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.checkbox_title {
+  color: var(--main-color);
 }
 .checkbox1:hover {
   cursor: pointer;
@@ -457,6 +511,7 @@ input {
   padding: 0 1px;
   margin: 0 2px;
 }
+
 .button_todo:hover {
   background-color: rgb(158, 9, 9);
   color: white;
@@ -573,6 +628,10 @@ input {
   align-items: center;
 }
 
+.addicon_plus {
+  margin-right: 2px;
+}
+
 .addicon_button {
   width: 100%;
   height: 5vh;
@@ -586,6 +645,9 @@ input {
 /* // music player // */
 
 .wrap__music {
+  position: absolute;
+  top: 18vh;
+  right: 0.3%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -598,7 +660,7 @@ input {
   overflow: hidden;
   position: relative;
   border-radius: 10px;
-  background-color: rgba(66, 65, 65, 0.415); /*뮤직 박스 컬러*/
+  background-color: var(--window-color); /*뮤직 박스 컬러*/
   box-shadow: 0px 6px 10px rgba(47, 47, 47, 0.547);
 }
 
@@ -606,7 +668,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: rgb(255, 255, 255); /*상단바 폰트컬러*/
+  color: var(--main-color); /*상단바 폰트컬러*/
 }
 .music__top i {
   font-size: 30px;
@@ -623,7 +685,7 @@ input {
   overflow: hidden;
   border-radius: 15px;
   margin-top: 25px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -638,7 +700,7 @@ input {
   margin: 30px;
 }
 .music_song p {
-  color: white;
+  color: var(--main-color);
 }
 .music_song .name {
   font-size: 20px;
@@ -668,7 +730,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: rgb(180, 180, 180); /*시간표시 폰트 컬러*/
+  color: var(--main-color); /*시간표시 폰트 컬러*/
   font-size: 0.9em;
   pointer-events: none;
 }
@@ -692,7 +754,7 @@ input {
   /*여기서 버튼들 색깔 바꾼다*/
   font-size: 28px;
   user-select: none;
-  background: white;
+  background: var(--main-color);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
