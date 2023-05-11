@@ -353,6 +353,7 @@ function iconCreate() {
 }
 
 const addIconButton = document.querySelector("#addicon-button");
+
 addIconButton.addEventListener("click", iconCreate);
 
 /* close add page */
@@ -361,6 +362,7 @@ whatEvent(document, "keyup", function (key_code) {
     // if (!addPage.classList.contains("HIDDEN_V")) {
     addPage.classList.add("HIDDEN_V");
     todoDisplay.classList.add("HIDDEN_V");
+    musicWrap.classList.add("HIDDEN_V");
 
     reset_icons(houseIcon, imageIcon, fooIcon, smileIcon);
     // }

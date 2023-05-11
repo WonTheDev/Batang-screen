@@ -16,6 +16,7 @@
   --window-color: rgba(255, 255, 255, 0.8);
   --main-color: black;
   --secondary-color: #aaa;
+  --highlight-color: rgba(255, 190, 200, 0.437);
 
   --pink: #ff74a4;
   --violet: #9f6ea3;
@@ -60,7 +61,11 @@ body {
 }
 
 .background_img {
+  position: relative;
+  top: 0;
+  left: 0;
   background-image: url(../img/background1.jpg);
+  background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
   background-size: cover;
@@ -78,6 +83,7 @@ input {
   --black: white;
   --window-color: rgba(0, 0, 0, 0.6);
   --bar-color: rgba(0, 0, 0, 0.2);
+  --highlight-color: rgba(255, 65, 55, 0.6);
 }
 
 /* login screen ------------------------------------------------------- */
@@ -408,6 +414,7 @@ input {
   cursor: pointer;
 }
 .memo_input {
+  font-family: "SUITE-Regular";
   width: 70%;
   height: 20vh;
   display: flex;
@@ -473,13 +480,15 @@ input {
 
 .span_todo {
   font-size: var(--font-md);
+  color: var(--main-color);
   font-weight: bold;
   position: relative;
   top: 2px;
 }
 .span_memo {
   font-size: var(--font-sm);
-  background-color: rgba(255, 192, 203, 0.437);
+  color: var(--main-color);
+  background-color: var(--highlight-color);
   margin: 2px;
   position: relative;
   top: 2px;
@@ -488,7 +497,7 @@ input {
 .button_todo {
   width: 8%;
   height: 2vh;
-  background-color: red;
+  background-color: rgba(255, 50, 50, 0.8);
   font-size: var(--font-sm);
   color: white;
   text-align: center;
@@ -517,6 +526,7 @@ input {
   left: 50%;
   border-radius: 20px;
   transform: translate(-50%);
+  margin-bottom: 5px;
 }
 
 .bottom_bars_style > li {
@@ -632,8 +642,8 @@ input {
 
 .wrap__music {
   position: absolute;
-  top: 18vh;
-  right: 0.3%;
+  top: 16vh;
+  right: 1%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -647,7 +657,6 @@ input {
   position: relative;
   border-radius: 10px;
   background-color: var(--window-color); /*뮤직 박스 컬러*/
-  box-shadow: 0px 6px 10px rgba(47, 47, 47, 0.547);
 }
 
 .music__top {
