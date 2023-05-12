@@ -770,11 +770,11 @@ input {
 
 .music__control #control-prev:hover {
   /*이전버튼 hover*/
-  font-size: 2.8vw;
+  font-size: 50px;
 }
 .music__control #control-next:hover {
   /*다음버튼 hover*/
-  font-size: 2.8vw;
+  font-size: 50px;
 }
 
 .music__control i {
@@ -804,17 +804,17 @@ input {
 }
 .music__control .play-pause #control-play {
   opacity: 0.8; /* 재생버튼 ▶ */
-  font-size: 4vw; /* 재생버튼크기 */
+  font-size: 50px; /* 재생버튼크기 */
 }
 .music__control .play-pause #control-play:hover {
   /*재생버튼 마우스 올렸을 때 */
-  font-size: 4.3vw;
+  font-size: 60px;
 }
 
 .music_list {
   position: absolute;
   background: var(--white);
-  width: 100%;
+  width: 85%;
   left: 0;
   bottom: -400px;
   z-index: 10;
@@ -887,6 +887,9 @@ input {
   }
   .menus_icons {
     padding-top: 0;
+  }
+  .menus_menu {
+    margin: 0;
   }
 
   .todo_container {
