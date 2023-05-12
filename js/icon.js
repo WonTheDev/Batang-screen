@@ -257,7 +257,7 @@ function iconCreate() {
   const nameValue = getValue("add-name");
   /* is value null? */
   if (!siteValue || !nameValue) {
-    if (addPage.classList.contains("DISPLAY_F")) {
+    if (!addPage.classList.contains("HIDDEN_V")) {
       alert("이름 혹은 사이트를 입력해 주세요.");
     }
   } else {
@@ -348,6 +348,10 @@ function iconCreate() {
       /* add delete event */
       iconsEvent();
     }
+    const resetSiteValue = document.querySelector("#add-site");
+    const resetNameValue = document.querySelector("#add-name");
+    resetSiteValue.value = "";
+    resetNameValue.value = "";
   }
 }
 
@@ -362,6 +366,8 @@ whatEvent(document, "keyup", function (key_code) {
     addPage.classList.add("HIDDEN_V");
     todoDisplay.classList.add("HIDDEN_V");
     musicWrap.classList.add("HIDDEN_V");
+    booktap.classList.add("HIDDEN_D");
+    weatherContainer.classList.add("HIDDEN_V");
 
     reset_icons(houseIcon, imageIcon, fooIcon, smileIcon);
     // }

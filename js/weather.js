@@ -85,7 +85,7 @@ function getSuccess(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       const nowTemp = data.main.temp;
       const minTemp = data.main.temp_min;
       const maxTemp = data.main.temp_max;
@@ -99,11 +99,20 @@ function getSuccess(position) {
       const name = document.querySelector(".menus_icons li:nth-child(1)");
       const temp = document.querySelector(".menus_icons li:nth-child(2)");
       const weather = document.querySelector(".menus_icons li:nth-child(3)");
-      name.innerText = area + ", ";
-      temp.innerText = nowTemp + "˚C";
+      name.innerText = `${area}\u00A0`;
+      temp.innerText = Math.round(nowTemp) + "˚C";
       // weather.innerText = nowWeather;
       weatherIconImg.setAttribute("src", weatherIconAdrs);
       // console.log("changed");
+
+      document.querySelector("#city-name").innerText = area;
+      document.querySelector("#current-temp").innerText = nowTemp + "˚C";
+      document.querySelector("#min-text").innerText = `최저:${minTemp}˚C`;
+      document.querySelector("#max-text").innerText = `최고:${maxTemp}˚C`;
+      document
+        .querySelector("#weather-icon")
+        .setAttribute("src", weatherIconAdrs);
+      document.querySelector("#weather-text").innerText = nowWeather;
     });
 }
 function getFail() {

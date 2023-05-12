@@ -28,6 +28,11 @@
       src="https://kit.fontawesome.com/ff0a8156a4.js"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="background_img">
     <!-- bars -->
@@ -38,14 +43,33 @@
             <i class="fa-brands fa-apple"></i>
           </button>
           <button id="dropdown-button" class="menus_menu">
-            <span id="login-username" class="menus_menu"></span>
+            <span id="login-username" class="username_text"></span>
           </button>
           <button class="menus_menu" id="todo-button">투두리스트</button>
           <button class="menus_menu" id="player-button">음악</button>
+          <button class="menus_menu" id="book-search">책검색</button>
           <button class="menus_menu" id="bg-button">배경화면</button>
         </ol>
-        <div class="menus_icons">
-          <li></li>
+        <form
+          method="get"
+          action="http://www.google.co.kr/search"
+          target="_blank"
+        >
+          <input
+            class="google_search"
+            type="text"
+            name="q"
+            size="15"
+            maxlength="255"
+            placeholder="구글 검색"
+            autocomplete="off"
+            value=""
+          />
+          <!-- 구글 검색 입력 창 -->
+          <!-- <input type="submit" name="btnG" value="검색" /> -->
+          <!-- 검색 버튼 -->
+        </form>
+        <div class="menus_icons" id="weather-button">
           <li></li>
           <li></li>
           <img class="weather_icon" />
@@ -75,6 +99,33 @@
       </form>
     </div>
     <div class="main_content">
+      <!-- book_search_tap -->
+      <div id="book-tap" class="book_container HIDDEN_D">
+        <div class="book_tap">
+          <form id="bookform" class="book_form">
+            <input
+              type="text"
+              class="book_input"
+              id="book-name"
+              placeholder="책 제목을 입력하여 주세요."
+            />
+          </form>
+        </div>
+      </div>
+      <div class="weather_container HIDDEN_V" id="weather-container">
+        <div class="weather_icon_div">
+          <span id="city-name" class="city_name"></span>
+          <img id="weather-icon" class="weather_icon_big" />
+          <span id="weather-text" class="weather_text"></span>
+        </div>
+        <div class="weather_text_div">
+          <div id="current-temp" class="current_temp"></div>
+          <div id="min-max-temp" class="min_max_temp">
+            <span id="min-text" class="min_text"></span>
+            <span id="max-text" class="max_text"></span>
+          </div>
+        </div>
+      </div>
       <!-- 투두리스트 시작 -->
       <div class="todo_container HIDDEN_V" id="todo-container">
         <div class="topbar">
