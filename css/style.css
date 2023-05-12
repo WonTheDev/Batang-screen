@@ -211,13 +211,22 @@ input {
 
 /* main_content -------------------------------------------- */
 
+.main_content {
+  width: 100%;
+  height: 100vh;
+}
+
 /* 투두리스트 관련 */
 
 .topbar {
   display: flex;
-  width: 100%;
+  position: relative;
+  width: auto;
   height: 4vh;
-  padding: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+
+  border-bottom: 1px solid var(--main-color);
 }
 .circle1 {
   border-radius: 100%;
@@ -247,11 +256,16 @@ input {
 
 .todo_container {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1.5%;
+  margin-top: 5vh;
+  margin-right: 0;
   background-color: var(--window-color);
-  width: 50%;
-  height: 80vh;
+  width: 60%;
+  height: 86vh;
   border-radius: 20px;
-  margin: 5px;
   border: none;
 }
 
@@ -281,29 +295,36 @@ input {
 }
 
 .todo_main {
+  position: relative;
+  width: auto;
+  height: 81vh;
   display: flex;
+  justify-content: center;
 }
-
+/* 
 .vline {
   border-left: thin solid var(--main-color);
-  height: 80vh; /*header과 main을 합친 height값 */
+  height: 80vh; 
+  /* header과 main을 합친 height값
   position: absolute;
-  left: 20%;
-}
+} 
+
+*/
 
 .worklist {
-  width: 39%;
-  height: 80vh;
+  width: 100%;
+  height: 81vh;
+  border-right: 1px solid var(--main-color);
 }
 
 .worklist_middlebar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: auto;
   height: 3vh;
   font-weight: bold;
-  padding: 0 10px;
+  padding: 10px;
 }
 
 .list_container {
@@ -314,6 +335,13 @@ input {
   justify-content: center;
   justify-items: center;
   align-content: center;
+  margin-right: 5px;
+}
+
+.categorys {
+  position: relative;
+  width: auto;
+  height: auto;
 }
 
 .category1 {
@@ -350,8 +378,9 @@ input {
 
 /*----------------------------------------------------------------------------------------------------------*/
 .addworkbox {
-  width: 60%;
-  height: 76vh;
+  /* display: none; */
+  width: 100%;
+  height: auto;
 }
 
 .addwork {
@@ -368,7 +397,7 @@ input {
 
 .end_worklist {
   display: block;
-  margin-left: 5%;
+  margin-left: 2%;
 }
 
 .end_worklist > div {
@@ -378,7 +407,7 @@ input {
 
 .todolist {
   display: block;
-  margin-left: 5%;
+  margin-left: 2%;
 }
 
 .todolist > div {
@@ -483,7 +512,8 @@ input {
   color: var(--main-color);
   font-weight: bold;
   position: relative;
-  top: 2px;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 .span_memo {
   font-size: var(--font-sm);
@@ -492,19 +522,21 @@ input {
   margin: 2px;
   position: relative;
   top: 2px;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 .button_todo {
-  width: 8%;
-  height: 2vh;
+  width: 18px;
+  height: 18px;
   background-color: rgba(255, 50, 50, 0.8);
   font-size: var(--font-sm);
   color: white;
   text-align: center;
   border: none;
-  border-radius: var(--border-radius);
-  padding: 0 1px;
-  margin: 0 2px;
+  border-radius: 9px;
+  padding: 1px;
+  margin-right: 5px;
 }
 
 .button_todo:hover {
@@ -526,7 +558,7 @@ input {
   left: 50%;
   border-radius: 20px;
   transform: translate(-50%);
-  margin-bottom: 5px;
+  margin: 1vh 1%;
 }
 
 .bottom_bars_style > li {
@@ -642,12 +674,12 @@ input {
 
 .wrap__music {
   position: absolute;
-  top: 16vh;
-  right: 1%;
+  bottom: 9vh;
+  right: 0;
+  margin: 0 1.5%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: 100%;
+  min-height: 60%;
   user-select: none;
 }
 .music__inner {
@@ -655,7 +687,7 @@ input {
   padding: 25px 30px;
   overflow: hidden;
   position: relative;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: var(--window-color); /*뮤직 박스 컬러*/
 }
 
@@ -835,4 +867,31 @@ input {
 }
 .music_list .list > ul > li > div p {
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .addworkbox {
+    display: none;
+  }
+
+  .worklist {
+    border-right: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    height: auto;
+  }
+  .navbar_menus {
+    margin: 0;
+  }
+  .menus_icons {
+    padding-top: 0;
+  }
+
+  .todo_container {
+    margin-top: 10vh;
+    height: 81vh;
+    width: 97%;
+  }
 }
